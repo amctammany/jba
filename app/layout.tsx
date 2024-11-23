@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Nav, NavLink } from "@/components/Nav";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Nav>
-          <NavLink href="/about">About Us</NavLink>
-          <NavLink href="/breweries">Breweries</NavLink>
-        </Nav>
-        <div className="p-2 m-1">{children}</div>
+        <AppRouterCacheProvider>
+          <Nav>
+            <NavLink href="/about">About Us</NavLink>
+            <NavLink href="/breweries">Breweries</NavLink>
+          </Nav>
+          <div className="p-2 m-1">{children}</div>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
