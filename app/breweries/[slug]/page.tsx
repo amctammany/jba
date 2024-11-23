@@ -1,4 +1,5 @@
 //import { Brewery } from "@prisma/client";
+import { Prop } from "@/components/Prop";
 import { prisma } from "@/lib/client";
 import Link from "next/link";
 
@@ -35,6 +36,8 @@ export default async function BreweryDisplay({
         <span className="text-lg font-bold">Brewery Display</span>
         <Link href={`/breweries/${brewery.slug}/edit`}>Edit</Link>
       </div>
+      <Prop label="Name" value={brewery.name} />
+      <Prop label="Address" value={brewery.address} />
       <div>
         <label htmlFor="name">Name</label>
         <span id="name">{brewery.name}</span>
