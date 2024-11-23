@@ -1,5 +1,6 @@
 //import { Brewery } from "@prisma/client";
 import { prisma } from "@/lib/client";
+import Link from "next/link";
 
 type BreweryDisplayParams = Promise<{
   slug: string;
@@ -30,7 +31,10 @@ export default async function BreweryDisplay({
   if (!brewery) return <div>Not Found?</div>;
   return (
     <div>
-      <span className="text-lg font-bold">Brewery Display</span>
+      <div>
+        <span className="text-lg font-bold">Brewery Display</span>
+        <Link href={`/breweries/${brewery.slug}/edit`}>Edit</Link>
+      </div>
       <div>
         <label htmlFor="name">Name</label>
         <span id="name">{brewery.name}</span>
