@@ -15,7 +15,7 @@ export const Nav = ({ children }: NavProps) => {
           href="/"
           className="flex-none sm:hidden text-slate-200 font-extrabold py-2  mx-auto"
         >
-          Jacksonville Brewing Alliance
+          JBA
         </Link>
 
         <Link
