@@ -22,6 +22,7 @@ model User {
 model Brewery {
   id      String @id @default(cuid())
   name    String
+  slug    String
   address String
   lng     Float
   lat     Float

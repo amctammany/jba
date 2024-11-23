@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/client";
+import Link from "next/link";
 
 export const metadata = {
   title: "JBA: Breweries",
@@ -12,7 +13,9 @@ export default async function BreweriesIndex() {
       <h2 className="text-lg underline font-bold">Breweries</h2>
       <ul>
         {breweries.map((brewery) => (
-          <li key={brewery.id}>{brewery.name}</li>
+          <Link key={brewery.id} href={`/breweries/${brewery.slug}`}>
+            <li>{brewery.name}</li>
+          </Link>
         ))}
       </ul>
     </div>
