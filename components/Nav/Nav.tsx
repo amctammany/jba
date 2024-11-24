@@ -13,14 +13,7 @@ export const Nav = ({ children }: NavProps) => {
       <div className="flex items-center flex-grow mr-6 lg:mr-2 w-full ">
         <Link
           href="/"
-          className="flex-none sm:hidden text-slate-200 font-extrabold py-2  mx-auto"
-        >
-          JBA
-        </Link>
-
-        <Link
-          href="/"
-          className="flex-none hidden sm:block text-slate-200 font-extrabold text-2xl py-2 mx-auto "
+          className="flex-none text-slate-200 font-extrabold sm:text-2xl py-2 mx-auto hover:underline"
         >
           Jacksonville Brewing Alliance
         </Link>

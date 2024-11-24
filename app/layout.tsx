@@ -32,6 +32,7 @@ export default function RootLayout({
         <Nav>
           <NavLink href="/about">About Us</NavLink>
           <NavLink href="/breweries">Breweries</NavLink>
+          <NavLink href="/smash">JBA SMaSH</NavLink>
         </Nav>
         <div className="p-2 m-1">{children}</div>
       </body>
