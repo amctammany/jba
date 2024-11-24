@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/Button/ButtonLink";
+import { Submit, TextField } from "@/components/Form";
 //import { DialogButton } from "@/components/Dialog";
 import Prop from "@/components/Prop/Prop";
 import { Section } from "@/components/Section";
@@ -25,8 +26,9 @@ export const Profile = ({ src, action }: ProfileProps) => {
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
       <Section header="Profile" actions={<ProfileActions />}>
         <div>
-          <input type="text" name="name" />
-          <input type="text" name="email" />
+          <TextField label="Name" name="name" />
+          <TextField name="email" />
+          <Submit>Save</Submit>
         </div>
       </Section>
     </div>
