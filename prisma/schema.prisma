@@ -41,4 +41,5 @@ model Beer {
 enum JBAIterations {
   JBA2025
   JBA2026
+  JBA2027
 }
