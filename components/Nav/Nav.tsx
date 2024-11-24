@@ -1,6 +1,7 @@
 import Link from "next/link";
 //import { AuthenticationNav } from ".";
 import { Button, Menu } from "..";
+import { AuthenticationNav } from "./AuthenticationNav";
 
 export type NavProps = {
   children: React.ReactNode;
@@ -18,7 +19,9 @@ export const Nav = ({ children }: NavProps) => {
           Jacksonville Brewing Alliance
         </Link>
       </div>
-      <div className="md:hidden "></div>
+      <div className="">
+        <AuthenticationNav />
+      </div>
     </nav>
   );
 };

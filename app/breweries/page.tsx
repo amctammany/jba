@@ -1,13 +1,18 @@
 import { prisma } from "@/lib/client";
 import Link from "next/link";
+import { auth } from "@/app/auth";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "JBA: Breweries",
 };
 
 export default async function BreweriesIndex() {
+  const session = await auth();
+  //console.log(session);
+  if (!session) redirect("/api/auth/signin");
   const breweries = await prisma.brewery.findMany();
-  console.log(breweries);
+  //console.log(breweries);
   return (
     <div>
       <h2 className="text-lg underline font-bold">Breweries</h2>
