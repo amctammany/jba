@@ -1,7 +1,9 @@
 //import { Brewery } from "@prisma/client";
 import { Prop } from "@/components/Prop";
 import { prisma } from "@/lib/client";
+import { fail } from "assert";
 import Link from "next/link";
+import BreweryDisplay from "../_components/BreweryDisplay";
 
 type BreweryDisplayParams = Promise<{
   slug: string;
@@ -18,7 +20,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BreweryDisplay({
+export default async function BreweryDisplayPage({
   params,
 }: {
   params: BreweryDisplayParams;
@@ -30,22 +32,5 @@ export default async function BreweryDisplay({
     },
   });
   if (!brewery) return <div>Not Found?</div>;
-  return (
-    <div>
-      <div>
-        <span className="text-lg font-bold">Brewery Display</span>
-        <Link href={`/breweries/${brewery.slug}/edit`}>Edit</Link>
-      </div>
-      <Prop label="Name" value={brewery.name} />
-      <Prop label="Address" value={brewery.address} />
-      <div>
-        <label htmlFor="name">Name</label>
-        <span id="name">{brewery.name}</span>
-      </div>
-      <div>
-        <label htmlFor="address">Address</label>
-        <span id="address">{brewery.address}</span>
-      </div>
-    </div>
-  );
+  return <BreweryDisplay brewery={brewery} />;
 }
