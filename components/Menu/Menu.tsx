@@ -4,6 +4,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { useState, useRef, useEffect } from "react";
 //import { MenuIcon } from "../Icon";
 import Button from "../Button/Button";
+import { MenuIcon } from "../Icon/MenuIcon";
 
 export type MenuProps = VariantProps<typeof menuStyles> & {
   label?: string;
@@ -69,7 +70,7 @@ export const Menu = ({ label, children, variant, anchor }: MenuProps) => {
   return (
     <div ref={ref} className="relative">
       <Button onClick={toggleOpen} className={menuButtonStyles({})}>
-        {label ? <div>{label}</div> : "..."}
+        {label ? <div>{label}</div> : <MenuIcon />}
       </Button>
       <div
         onClick={toggleOpen}

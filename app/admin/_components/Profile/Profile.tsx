@@ -1,6 +1,7 @@
 "use client";
 import { ButtonLink } from "@/components/Button/ButtonLink";
 import { Form, Submit, TextField } from "@/components/Form";
+import { Input } from "@/components/Form/Input";
 //import { DialogButton } from "@/components/Dialog";
 import Prop from "@/components/Prop/Prop";
 import { Section } from "@/components/Section";
@@ -29,7 +30,8 @@ export const Profile = ({ src, action }: ProfileProps) => {
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
       <Section header="Profile" actions={<ProfileActions />}>
         <div>
-          <Form>
+          <Form action={action}>
+            <Input type="hidden" {...register("id")} />
             <TextField label="Name" {...register("name")} />
             <TextField label="Email" {...register("email")} />
             <Submit>Save</Submit>

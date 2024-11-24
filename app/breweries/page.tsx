@@ -16,6 +16,7 @@ export default async function BreweriesIndex() {
   return (
     <div>
       <h2 className="text-lg underline font-bold">Breweries</h2>
+      <Link href="/breweries/new">New Brewery</Link>
       <ul>
         {breweries.map((brewery) => (
           <Link key={brewery.id} href={`/breweries/${brewery.slug}`}>

@@ -1,5 +1,7 @@
 //import { Brewery } from "@prisma/client";
 import { prisma } from "@/lib/client";
+import BreweryEditor from "../../_components/BreweryEditor";
+import { updateBrewery } from "../../actions";
 
 type BreweryEditorParams = Promise<{
   slug: string;
@@ -15,7 +17,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BreweryEditor({
+export default async function BreweryEditorPage({
   params,
 }: {
   params: BreweryEditorParams;
@@ -26,10 +28,7 @@ export default async function BreweryEditor({
   return (
     <div>
       Brewery Editor
-      <div>
-        <label htmlFor="name">Name</label>
-        <span id="name">{brewery.name}</span>
-      </div>
+      <BreweryEditor src={brewery} action={updateBrewery} />
     </div>
   );
 }

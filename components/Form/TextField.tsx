@@ -2,7 +2,7 @@ import { ComponentProps, SyntheticEvent, forwardRef } from "react";
 import { Label } from "./Label";
 import { VariantProps, cva } from "class-variance-authority";
 //import { SchemaFieldError } from "@/lib/validateSchema";
-import { Input, InputProps, inputStyles } from "./Input";
+import { InputProps, Input, inputStyles } from "./Input";
 
 export type TextFieldProps = InputProps;
 const textFieldStyles = cva(
