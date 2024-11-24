@@ -5,32 +5,31 @@ import { Section } from "@/components/Section";
 //import { Section } from "@/components/Section/Section";
 import { User } from "@prisma/client";
 
-export type DashboardProps = {
+export type ProfileProps = {
   src?: User | null;
   action?: any;
   //children: React.ReactNode;
 };
 
-const AdminSettingsActions = () => {
+const ProfileActions = () => {
   return (
     <div className="grid grid-flow-col">
-      <ButtonLink href="/admin/profile">Profile</ButtonLink>
+      <ButtonLink href="/admin/profile">Save</ButtonLink>
       <ButtonLink href="/api/auth/signout">Signout</ButtonLink>
     </div>
   );
 };
 
-export const Dashboard = ({ src, action }: DashboardProps) => {
+export const Profile = ({ src, action }: ProfileProps) => {
   return (
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
-      <Section header="Admin" actions={<AdminSettingsActions />}>
+      <Section header="Profile" actions={<ProfileActions />}>
         <div>
-          <Prop label="Name" value={src?.name} />
-          <Prop label="Email" value={src?.email} />
+          <input type="text" name="name" />
+          <input type="text" name="email" />
         </div>
       </Section>
-      <Section header="Progress">Progerss</Section>
     </div>
   );
 };
-export default Dashboard;
+export default Profile;
