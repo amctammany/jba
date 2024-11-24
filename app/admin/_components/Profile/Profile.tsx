@@ -1,10 +1,12 @@
+"use client";
 import { ButtonLink } from "@/components/Button/ButtonLink";
-import { Submit, TextField } from "@/components/Form";
+import { Form, Submit, TextField } from "@/components/Form";
 //import { DialogButton } from "@/components/Dialog";
 import Prop from "@/components/Prop/Prop";
 import { Section } from "@/components/Section";
 //import { Section } from "@/components/Section/Section";
 import { User } from "@prisma/client";
+import { useForm } from "react-hook-form";
 
 export type ProfileProps = {
   src?: User | null;
@@ -22,13 +24,16 @@ const ProfileActions = () => {
 };
 
 export const Profile = ({ src, action }: ProfileProps) => {
+  const { register } = useForm({ defaultValues: src || {} });
   return (
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
       <Section header="Profile" actions={<ProfileActions />}>
         <div>
-          <TextField label="Name" name="name" />
-          <TextField name="email" />
-          <Submit>Save</Submit>
+          <Form>
+            <TextField label="Name" {...register("name")} />
+            <TextField label="Email" {...register("email")} />
+            <Submit>Save</Submit>
+          </Form>
         </div>
       </Section>
     </div>

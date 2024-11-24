@@ -2,7 +2,7 @@
 import { ComponentProps, SyntheticEvent, forwardRef } from "react";
 import { Label } from "./Label";
 import { VariantProps, cva } from "class-variance-authority";
-//import { SchemaFieldError } from "@/lib/validateSchema";
+import { SchemaFieldError } from "@/lib/validateSchema";
 
 type ErrorType = {
   type: string;
@@ -12,7 +12,7 @@ type ErrorType = {
 export type SelectProps = {
   name: string;
   label?: string;
-  error?: any; //SchemaFieldError;
+  error?: SchemaFieldError;
   defaultValue?: any;
   disabled?: boolean;
   children?: React.ReactNode | React.ReactNode[];
