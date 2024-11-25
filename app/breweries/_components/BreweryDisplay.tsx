@@ -9,10 +9,10 @@ export type BreweryDisplayProps = {
   brewery: Brewery;
 };
 
-const BreweryDisplayActions = () => {
+const BreweryDisplayActions = ({ slug }: { slug?: string }) => {
   return (
     <div className="grid grid-flow-col">
-      <ButtonLink href="edit">Edit</ButtonLink>
+      <ButtonLink href={`/breweries/${slug}/edit`}>Edit</ButtonLink>
     </div>
   );
 };
@@ -31,16 +31,10 @@ const BreweryDisplay = ({ brewery }: BreweryDisplayProps) => {
   nav.getCurrentPosition(success, failure);
 
   return (
-    <div>
+    <div className="mx-auto w-full lg:w-10/12 grid grid-flow-row gap-8">
       <Section
         header={`Brewery: ${brewery.name}`}
-        actions={
-          <div>
-            <ButtonLink href={`/breweries/${brewery.slug}/edit`}>
-              Edit
-            </ButtonLink>
-          </div>
-        }
+        actions={<BreweryDisplayActions slug={brewery.slug} />}
       >
         <Prop label="Name" value={brewery.name} />
         <Prop label="Address" value={brewery.address} />

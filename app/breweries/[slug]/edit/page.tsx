@@ -25,10 +25,5 @@ export default async function BreweryEditorPage({
   const { slug } = await params;
   const brewery = await prisma.brewery.findFirst({ where: { slug } });
   if (!brewery) return <div>Not Found?</div>;
-  return (
-    <div>
-      Brewery Editor
-      <BreweryEditor src={brewery} action={updateBrewery} />
-    </div>
-  );
+  return <BreweryEditor src={brewery} action={updateBrewery} />;
 }
