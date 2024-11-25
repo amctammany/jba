@@ -1,6 +1,12 @@
 "use client";
 import { ButtonLink } from "@/components/Button/ButtonLink";
-import { Form, NumberField, Submit, TextField } from "@/components/Form";
+import {
+  Form,
+  NumberField,
+  Submit,
+  TextField,
+  TextArea,
+} from "@/components/Form";
 import { Input } from "@/components/Form/Input";
 //import { DialogButton } from "@/components/Dialog";
 import Prop from "@/components/Prop/Prop";
@@ -35,6 +41,9 @@ export const BreweryEditor = ({ src, action }: BreweryEditorProps) => {
           <div>
             <Input type="hidden" {...register("id")} />
             <TextField label="Name" {...register("name")} />
+            <TextArea label="Description" {...register("description")} />
+            <TextField label="Phone Number" {...register("phoneNumber")} />
+            <TextField label="Website URL" {...register("website")} />
             <TextField label="Address" {...register("address")} />
 
             <NumberField label="Longitude" {...register("lng")} />

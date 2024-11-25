@@ -51,13 +51,17 @@ model Session {
 }
 
 model Brewery {
-  id      String @id @default(cuid())
-  name    String
-  slug    String
-  address String
-  lng     Float
-  lat     Float
-  beers   Beer[]
+  id          String  @id @default(cuid())
+  name        String
+  slug        String
+  description String?
+  website     String?
+  phoneNumber String?
+  image       String?
+  address     String
+  lng         Float?
+  lat         Float?
+  beers       Beer[]
 }
 
 model Beer {

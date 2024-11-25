@@ -9,9 +9,12 @@ import { zfd } from "zod-form-data";
 const brewerySchema = zfd.formData({
   id: zfd.text(z.string().optional()),
   name: zfd.text(),
-  address: zfd.text(),
-  lng: zfd.numeric(z.number().min(0)),
-  lat: zfd.numeric(z.number().min(0)),
+  description: zfd.text(z.string().optional()),
+  website: zfd.text(z.string().optional()),
+  phoneNumber: zfd.text(z.string().optional()),
+  address: zfd.text(z.string()),
+  lng: zfd.numeric(z.number().optional()),
+  lat: zfd.numeric(z.number().optional()),
 });
 type State = any;
 export async function createBrewery(prevState: State, formData: FormData) {

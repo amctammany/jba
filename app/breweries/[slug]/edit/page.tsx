@@ -1,7 +1,6 @@
-//import { Brewery } from "@prisma/client";
-import { prisma } from "@/lib/client";
 import BreweryEditor from "../../_components/BreweryEditor";
 import { updateBrewery } from "../../actions";
+import { getBrewery } from "../../queries";
 
 type BreweryEditorParams = Promise<{
   slug: string;
@@ -23,7 +22,7 @@ export default async function BreweryEditorPage({
   params: BreweryEditorParams;
 }) {
   const { slug } = await params;
-  const brewery = await prisma.brewery.findFirst({ where: { slug } });
+  const brewery = await getBrewery(slug);
   if (!brewery) return <div>Not Found?</div>;
   return <BreweryEditor src={brewery} action={updateBrewery} />;
 }

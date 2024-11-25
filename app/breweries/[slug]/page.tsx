@@ -1,9 +1,5 @@
-//import { Brewery } from "@prisma/client";
-import { Prop } from "@/components/Prop";
-import { prisma } from "@/lib/client";
-import { fail } from "assert";
-import Link from "next/link";
 import BreweryDisplay from "../_components/BreweryDisplay";
+import { getBrewery } from "../queries";
 
 type BreweryDisplayParams = Promise<{
   slug: string;
@@ -26,11 +22,7 @@ export default async function BreweryDisplayPage({
   params: BreweryDisplayParams;
 }) {
   const { slug } = await params;
-  const brewery = await prisma.brewery.findFirst({
-    where: {
-      slug,
-    },
-  });
+  const brewery = await getBrewery(slug);
   if (!brewery) return <div>Not Found?</div>;
   return <BreweryDisplay brewery={brewery} />;
 }
