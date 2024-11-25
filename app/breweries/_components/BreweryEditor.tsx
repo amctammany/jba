@@ -8,7 +8,6 @@ import { Section } from "@/components/Section";
 //import { Section } from "@/components/Section/Section";
 import { Brewery, User } from "@prisma/client";
 import { useActionState } from "react";
-import { useFormState } from "react-dom";
 import { useForm } from "react-hook-form";
 
 export type BreweryEditorProps = {
@@ -20,8 +19,7 @@ export type BreweryEditorProps = {
 const BreweryEditorActions = () => {
   return (
     <div className="grid grid-flow-col">
-      <ButtonLink href="/admin/breweryEditor">Save</ButtonLink>
-      <ButtonLink href="/api/auth/signout">Signout</ButtonLink>
+      <Submit>Save</Submit>
     </div>
   );
 };
@@ -32,9 +30,9 @@ export const BreweryEditor = ({ src, action }: BreweryEditorProps) => {
   console.log(state);
   return (
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
-      <Section header="BreweryEditor" actions={<BreweryEditorActions />}>
-        <div>
-          <Form action={formAction}>
+      <Form action={formAction}>
+        <Section header="BreweryEditor" actions={<BreweryEditorActions />}>
+          <div>
             <Input type="hidden" {...register("id")} />
             <TextField label="Name" {...register("name")} />
             <TextField label="Address" {...register("address")} />
@@ -42,9 +40,9 @@ export const BreweryEditor = ({ src, action }: BreweryEditorProps) => {
             <NumberField label="Longitude" {...register("lng")} />
             <NumberField label="Latitude" {...register("lat")} />
             <Submit>Save</Submit>
-          </Form>
-        </div>
-      </Section>
+          </div>
+        </Section>
+      </Form>
     </div>
   );
 };
