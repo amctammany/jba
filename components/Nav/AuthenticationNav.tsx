@@ -1,11 +1,11 @@
 import { auth } from "@/app/auth";
 import Link from "next/link";
 import { NavLink } from "./NavLink";
-export type AuthenticationNavProps = {
-  //children: React.ReactNode;
-};
+//export type AuthenticationNavProps = {
+//children: React.ReactNode;
+//};
 
-export const AuthenticationNav = async ({}: AuthenticationNavProps) => {
+export const AuthenticationNav = async () => {
   const session = await auth();
   //console.log(session);
   return session === null ? (

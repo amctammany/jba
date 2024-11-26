@@ -3,18 +3,12 @@ import BreweryEditor from "../_components/BreweryEditor";
 import { createBrewery } from "../actions";
 import { Brewery } from "@prisma/client";
 
-type BreweryCreatorParams = Promise<{}>;
+//type BreweryCreatorParams = Promise<{}>;
 
 export const metadata: Metadata = {
   title: "Brewery Creator",
 };
-export default async function BreweryCreatorPage(
-  {
-    //params,
-  }: {
-    params: BreweryCreatorParams;
-  }
-) {
+export default async function BreweryCreatorPage() {
   //const { slug } = await params;
   //const brewery = await prisma.brewery.findFirst({ where: { slug } });
   //if (!brewery) return <div>Not Found?</div>;
