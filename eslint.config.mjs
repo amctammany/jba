@@ -25,29 +25,29 @@ const f = [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  //...compat.extends("next/typescript"),
+  ...compat.extends("next/typescript"),
   {
     rules: {
-      "no-unused-vars": "warn",
+      "no-unused-vars": "off",
       "no-undef": "warn",
       "@typescript-eslint/no-explicit-any": "off",
       "import/no-anonymous-default-export": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
     },
   },
 ];
-//export default config;
-export default tseslint.config(
+export default f;
+const t = tseslint.config(
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    ignores: ["./.next/**/*", "**/*.config.mjs"],
-    extends: [tseslint.configs.recommended ],
+    ignores: ["./.nnextnextext/**/*", "**/*.config.mjs"],
+    extends: [tseslint.configs.recommended],
     languageOptions: {
       globals: { ...globals.browser, ...globals.serviceworker },
       ...pluginReact.configs.flat.recommended.languageOptions,
     },
-
   },
   pluginReact.configs.flat.recommended,
   //configNext.configs.flat.recommended, // .flat.configs.recommended,

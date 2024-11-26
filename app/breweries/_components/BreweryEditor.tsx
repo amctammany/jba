@@ -11,7 +11,7 @@ import { Input } from "@/components/Form/Input";
 import { Section } from "@/components/Section";
 //import { Section } from "@/components/Section/Section";
 import { Brewery } from "@prisma/client";
-import { useActionState } from "react";
+import { useActionState, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export type BreweryEditorProps = {
@@ -31,6 +31,7 @@ const BreweryEditorActions = () => {
 export const BreweryEditor = ({ src, action }: BreweryEditorProps) => {
   const { register } = useForm({ defaultValues: src || { id: undefined } });
   const [state, formAction] = useActionState<any, FormData>(action, null);
+  const f = useMemo(() => ({ src, state }), [src]);
   console.log(state);
   return (
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
