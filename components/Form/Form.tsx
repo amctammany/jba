@@ -1,14 +1,14 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps } from "react";
-import {
-  FieldValues,
-  //Form as HookForm,
-  //SubmitHandler,
-  //UseFormHandleSubmit,
-} from "react-hook-form";
+import type { ComponentProps, ReactNode } from "react";
+//import {
+//FieldValues,
+////Form as HookForm,
+////SubmitHandler,
+////UseFormHandleSubmit,
+//} from "react-hook-form";
 
-export type FormProps<T extends FieldValues = {}> = {
-  children?: React.ReactNode;
+export type FormProps = {
+  children?: ReactNode;
   action?: (data: FormData) => void;
   onSubmit?: any;
 } & VariantProps<typeof formStyles> &

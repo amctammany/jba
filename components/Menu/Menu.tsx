@@ -1,14 +1,14 @@
 "use client";
 import { useClickAway } from "@/hooks";
 import { VariantProps, cva } from "class-variance-authority";
-import { useState, useRef, useEffect } from "react";
+import { useState, type ReactNode } from "react";
 //import { MenuIcon } from "../Icon";
 import Button from "../Button/Button";
 import { MenuIcon } from "../Icon/MenuIcon";
 
 export type MenuProps = VariantProps<typeof menuStyles> & {
   label?: string;
-  children?: React.ReactNode | React.ReactNode[];
+  children?: ReactNode | ReactNode[];
 };
 const menuStyles = cva(
   [

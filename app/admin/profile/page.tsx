@@ -12,9 +12,9 @@ import { updateUser } from "../actions";
 export default async function Page() {
   const session = await auth();
 
-  if (!session) return redirect("/");
+  if (!session || !session.user?.email) return redirect("/");
   const user = await prisma.user.findFirst({
-    where: { email: session?.user?.email! },
+    where: { email: session?.user?.email },
   });
   return <Profile src={user} action={updateUser} />;
 }

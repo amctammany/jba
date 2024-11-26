@@ -1,7 +1,4 @@
-import { prisma } from "@/lib/client";
-
 export default async function Home() {
-  const user = await prisma.user.findMany();
   //console.log(user);
   return <div>Home!</div>;
 }
