@@ -1,10 +1,19 @@
+import { ButtonLink } from "@/components";
+import { Section } from "@/components/Section";
 import { Brewery } from "@prisma/client";
 import Link from "next/link";
+const BreweryListActions = () => {
+  return (
+    <div className="grid grid-flow-col">
+      <ButtonLink href={`/breweries/new`}>New</ButtonLink>
+    </div>
+  );
+};
 
 function BreweryListItem({ brewery }: { brewery: Brewery }) {
   return (
     <Link key={brewery.id} href={`/breweries/${brewery.slug}`}>
-      <li className="group relative flex flex-col bg-white hover:bg-primary-500/10 mb-2 p-3">
+      <li className="group relative flex flex-col bg-white hover:bg-primary-500/10 border-b-2 p-3">
         <span className="flex-grow text-lg lg:text-xl font-bold">
           {brewery.name}
         </span>
@@ -27,13 +36,14 @@ export default async function BreweryList({ breweries }: BreweryListProps) {
   //if (!session) return <Link href="/api/auth/login">Login</Link>;
 
   return (
-    <div>
-      <h2 className="text-lg underline font-bold">Breweries</h2>
-      <ul className="border-black  border-2 bg-paper gap-7">
-        {breweries.map((brewery) => (
-          <BreweryListItem key={brewery.id} brewery={brewery} />
-        ))}
-      </ul>
+    <div className="mx-auto w-full lg:w-10/12 grid grid-flow-row gap-8">
+      <Section header="Breweries" actions={<BreweryListActions />}>
+        <ul className="">
+          {breweries.map((brewery) => (
+            <BreweryListItem key={brewery.id} brewery={brewery} />
+          ))}
+        </ul>
+      </Section>
     </div>
   );
 }
