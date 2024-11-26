@@ -1,8 +1,10 @@
-import { ComponentProps, SyntheticEvent, forwardRef } from "react";
+//import { ComponentProps, SyntheticEvent, forwardRef } from "react";
 import { Label } from "./Label";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 //import { SchemaFieldError } from "@/lib/validateSchema";
 import { InputProps, Input, inputStyles } from "./Input";
+//import { ComponentProps } from "react";
+import clsx from "clsx";
 
 export type TextFieldProps = InputProps;
 const textFieldStyles = cva(
@@ -30,14 +32,17 @@ export function TextField({
   className,
   disabled,
   label,
-  defaultValue,
   variant,
   size,
   ref,
   ...props
 }: TextFieldProps) {
   return (
-    <Label error={error} className={className} label={label || name}>
+    <Label
+      error={error}
+      className={clsx(textFieldStyles({ variant, size }), className)}
+      label={label || name}
+    >
       <Input
         disabled={disabled}
         className={inputStyles({

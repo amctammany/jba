@@ -1,17 +1,18 @@
-import { ComponentProps, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { SchemaFieldError } from "@/lib/validateSchema";
+import clsx from "clsx";
 
 export type InputProps = {
   name: string;
   label?: string | React.ReactNode;
-  defaultValue?: any;
+  //defaultValue?: any;
   disabled?: boolean;
   error?: SchemaFieldError;
   //onChange?: (e: SyntheticEvent) => void;
   //onBlur?: (e: SyntheticEvent) => void;
-  value?: any;
-  ref?: any;
+  //value?: any;
+  //ref?: any;
 } & VariantProps<typeof inputStyles> &
   ComponentProps<"input">;
 //export default InputProps;
@@ -39,8 +40,8 @@ export function Input({
   error,
   className,
   disabled,
-  label,
-  defaultValue,
+  //label,
+  //defaultValue,
   variant,
   size,
   ref,
@@ -49,10 +50,13 @@ export function Input({
   return (
     <input
       disabled={disabled}
-      className={inputStyles({
-        variant: error ? "error" : variant,
-        size,
-      })}
+      className={clsx(
+        className,
+        inputStyles({
+          variant: error ? "error" : variant,
+          size,
+        }),
+      )}
       //className="block w-full disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
       type="text"
       name={name}

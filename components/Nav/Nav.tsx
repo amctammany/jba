@@ -1,7 +1,7 @@
 import Link from "next/link";
 //import { AuthenticationNav } from ".";
-import { Button, Menu } from "..";
-import { AuthenticationNav } from "./AuthenticationNav";
+import { Menu } from "@/components/Menu";
+import { AuthenticationNav } from "@/components/Nav/AuthenticationNav";
 
 export type NavProps = {
   children: React.ReactNode;

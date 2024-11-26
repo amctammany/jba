@@ -1,5 +1,5 @@
 "use client";
-import { ComponentProps, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, SyntheticEvent } from "react";
 import { Label } from "./Label";
 import { VariantProps, cva } from "class-variance-authority";
 import { SchemaFieldError } from "@/lib/validateSchema";
@@ -13,7 +13,7 @@ export type SelectProps = {
   name: string;
   label?: string;
   error?: SchemaFieldError;
-  defaultValue?: any;
+  //defaultValue?: any;
   disabled?: boolean;
   children?: React.ReactNode | React.ReactNode[];
   options?: Record<string | number, string | number>;
@@ -21,8 +21,8 @@ export type SelectProps = {
 
   //onChange?: (e: SyntheticEvent) => void;
   onBlur?: (e: SyntheticEvent) => void;
-  value?: any;
-  ref: any;
+  //value?: any;
+  //ref: any;
 } & VariantProps<typeof selectStyles> &
   ComponentProps<"select">;
 const selectStyles = cva("input w-full", {

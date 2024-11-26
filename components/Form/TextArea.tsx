@@ -1,4 +1,4 @@
-import { ComponentProps, Ref, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, Ref, SyntheticEvent } from "react";
 import { Label } from "./Label";
 import { VariantProps, cva } from "class-variance-authority";
 import { SchemaFieldError } from "@/lib/validateSchema";
@@ -9,13 +9,13 @@ export type TextAreaProps = {
   rows?: number;
   error?: SchemaFieldError;
   disabled?: boolean;
-  defaultValue?: any;
+  //defaultValue?: any;
   onChange?: (e: SyntheticEvent) => void;
   onBlur?: (e: SyntheticEvent) => void;
-  value?: any;
+  //value?: any;
   ref?: Ref<HTMLTextAreaElement>;
 } & VariantProps<typeof textAreaStyles> &
-  ComponentProps<"div">;
+  ComponentProps<"textarea">;
 const textAreaStyles = cva(["block"], {
   variants: {
     variant: {
@@ -40,7 +40,6 @@ export function TextArea({
   label,
   rows,
   disabled,
-  defaultValue,
   error,
   className,
   onChange,
@@ -49,6 +48,7 @@ export function TextArea({
   variant,
   size,
   ref,
+  ...props
 }: TextAreaProps) {
   return (
     <Label className={className} error={error} label={label || name}>
@@ -65,6 +65,7 @@ export function TextArea({
         //className="block w-full disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
         name={name}
         rows={rows || 3}
+        {...props}
       />
     </Label>
   );

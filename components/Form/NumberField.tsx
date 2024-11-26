@@ -1,6 +1,6 @@
-import { ComponentProps, SyntheticEvent, forwardRef } from "react";
+//import { ComponentProps, SyntheticEvent, forwardRef } from "react";
 import { Label } from "./Label";
-import { VariantProps, cva } from "class-variance-authority";
+//import { cva } from "class-variance-authority";
 //import { SchemaFieldError } from "@/lib/validateSchema";
 import { InputProps, Input, inputStyles } from "./Input";
 
@@ -17,25 +17,25 @@ export type NumberFieldProps = {
   //ref: any;
 } & InputProps;
 
-const numberFieldStyles = cva("input w-full", {
-  variants: {
-    variant: {
-      default: [
-        "block",
-        "disabled:bg-slate-50",
-        "disabled:text-slate-500",
-        "disabled:border-slate-200",
-        "disabled:shadow-none",
-      ],
-      error: ["bg-error-200"],
-    },
-    size: {
-      default: [""],
-      small: [""],
-    },
-  },
-  defaultVariants: { size: "default", variant: "default" },
-});
+//const numberFieldStyles = cva("input w-full", {
+//variants: {
+//variant: {
+//default: [
+//"block",
+//"disabled:bg-slate-50",
+//"disabled:text-slate-500",
+//"disabled:border-slate-200",
+//"disabled:shadow-none",
+//],
+//error: ["bg-error-200"],
+//},
+//size: {
+//default: [""],
+//small: [""],
+//},
+//},
+//defaultVariants: { size: "default", variant: "default" },
+//});
 
 //export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
 export function NumberField({

@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/Button/ButtonLink";
 import { Form, Submit, TextField } from "@/components/Form";
 import { Input } from "@/components/Form/Input";
 //import { DialogButton } from "@/components/Dialog";
-import Prop from "@/components/Prop/Prop";
+//import Prop from "@/components/Prop/Prop";
 import { Section } from "@/components/Section";
 //import { Section } from "@/components/Section/Section";
 import { User } from "@prisma/client";

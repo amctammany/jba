@@ -2,7 +2,6 @@
 import { ButtonLink } from "@/components";
 import { Prop } from "@/components/Prop";
 import { Section } from "@/components/Section";
-import { Brewery } from "@prisma/client";
 import { ExtBrewery } from "../queries";
 
 export type BreweryDisplayProps = {
@@ -19,7 +18,7 @@ const BreweryDisplayActions = ({ slug }: { slug?: string }) => {
 
 const BreweryDisplay = ({ brewery }: BreweryDisplayProps) => {
   console.log(window.navigator.geolocation);
-  function success(pos: any) {
+  function success(pos: GeolocationPosition) {
     console.log("success", pos);
     return true;
   }
