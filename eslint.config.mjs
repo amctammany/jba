@@ -1,72 +1,37 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-//import pluginNext from "eslint-config-next";
-import tseslint from "typescript-eslint";
-//import configNext from "eslint-plugin-next";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import url from "node:url";
-import eslint from "@eslint/js";
-//import configNext from "eslint-config-next";
+// @ts-check
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import js from "@eslint/js";
+import ts from "typescript-eslint";
 import { FlatCompat } from "@eslint/eslintrc";
+import { fixupConfigRules } from "@eslint/compat";
+import prettierConfigRecommended from "eslint-plugin-prettier/recommended";
 
-const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
+});
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-//export default [tseslint.configs.recommended, ...compat.extends("next")];
-/** @type {import('eslint').Linter.Config[]} */
-const f = [
-  //{ extends: [pluginNext] },
+const patchedConfig = fixupConfigRules([
+  ...compat.extends("next/core-web-vitals"),
+]);
 
-  //pluginNext.configs.recommended,
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    ignores: [".next/*", "**/*.config.mjs"],
-  },
-  { languageOptions: { globals: globals.browser } },
-  //pluginNext.configs.flat.recommended,
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  ...compat.extends("next/typescript"),
+const config = [
+  ...patchedConfig,
+
+  ...ts.configs.recommended,
+  prettierConfigRecommended,
+  // Add more flat configs here
+  { ignores: [".next/*", "tailwind.config.ts"] },
   {
     rules: {
-      "no-unused-vars": "off",
-      "no-undef": "warn",
-      "@typescript-eslint/no-explicit-any": "off",
-      "import/no-anonymous-default-export": "off",
       "@typescript-eslint/no-unused-vars": "warn",
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
 ];
-const t = tseslint.config(
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    ignores: ["./.nnextnextext/**/*", "**/*.config.mjs"],
-    extends: [tseslint.configs.recommended],
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.serviceworker },
-      ...pluginReact.configs.flat.recommended.languageOptions,
-    },
-  },
-  pluginReact.configs.flat.recommended,
-  //configNext.configs.flat.recommended, // .flat.configs.recommended,
-  tseslint.configs.recommended,
 
-  ...compat.extends("next/typescript"),
-  {
-    rules: {
-      "no-unused-vars": "off",
-      "no-undef": "warn",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-empty-object-type": "warn",
-      "@typescript-eslint/no-unused-vars": "warn",
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
-    },
-  }
-);
-export default t;
+export default config;

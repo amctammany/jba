@@ -15,7 +15,7 @@ export const NavLink = ({ children, href, className }: NavLinkProps) => {
   const c = clsx(
     "block text-center py-2 px-4 font-bold -white hover:text-red-500 ",
     active ? "text-yellow-200 " : "text-white",
-    className
+    className,
   );
   return (
     <Link href={href} className={c}>

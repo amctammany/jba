@@ -45,7 +45,7 @@ const buttonStyles = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 export type ButtonProps = VariantProps<typeof buttonStyles> &
@@ -71,7 +71,7 @@ export const Button = ({
           size,
           //disabled: disabled ? "disabled" : "default",
         }),
-        className
+        className,
       )}
     />
   );

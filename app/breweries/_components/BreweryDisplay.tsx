@@ -3,9 +3,10 @@ import { ButtonLink } from "@/components";
 import { Prop } from "@/components/Prop";
 import { Section } from "@/components/Section";
 import { Brewery } from "@prisma/client";
+import { ExtBrewery } from "../queries";
 
 export type BreweryDisplayProps = {
-  brewery: Brewery;
+  brewery: ExtBrewery;
 };
 
 const BreweryDisplayActions = ({ slug }: { slug?: string }) => {
@@ -28,7 +29,7 @@ const BreweryDisplay = ({ brewery }: BreweryDisplayProps) => {
   }
   const nav = window.navigator.geolocation;
   nav.getCurrentPosition(success, failure);
-
+  if (brewery === null) return null;
   return (
     <div className="mx-auto w-full lg:w-10/12 grid grid-flow-row gap-8">
       <Section
@@ -37,6 +38,9 @@ const BreweryDisplay = ({ brewery }: BreweryDisplayProps) => {
       >
         <Prop label="Name" value={brewery.name} />
         <Prop label="Address" value={brewery.address} />
+        {brewery.beers.map((beer) => (
+          <div key={beer.id}>{JSON.stringify(beer)}</div>
+        ))}
       </Section>
     </div>
   );

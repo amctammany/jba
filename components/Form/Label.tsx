@@ -61,7 +61,7 @@ export const Label = ({
     <label
       className={clsx(
         labelStyles({ variant: error ? "error" : variant, size }),
-        className
+        className,
       )}
     >
       <span

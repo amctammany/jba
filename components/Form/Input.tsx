@@ -28,7 +28,7 @@ export const inputStyles = cva(
       },
     },
     defaultVariants: { size: "default", variant: "default" },
-  }
+  },
 );
 //export const Input = forwardRef<HTMLInputElement, InputProps>(
 export function Input({

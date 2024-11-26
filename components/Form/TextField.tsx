@@ -18,7 +18,7 @@ const textFieldStyles = cva(
       },
     },
     defaultVariants: { size: "default", variant: "default" },
-  }
+  },
 );
 //export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 export function TextField({

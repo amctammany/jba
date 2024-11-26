@@ -34,7 +34,7 @@ const menuStyles = cva(
       anchor: "left",
       open: "closed",
     },
-  }
+  },
 );
 const menuButtonStyles = cva(
   [
@@ -44,7 +44,7 @@ const menuButtonStyles = cva(
   {
     variants: {},
     defaultVariants: {},
-  }
+  },
 );
 /**
         <span className="ml-2 w-2">
