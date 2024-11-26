@@ -3,7 +3,6 @@ import { ButtonLink } from "@/components";
 import { Prop } from "@/components/Prop";
 import { Section } from "@/components/Section";
 import { Brewery } from "@prisma/client";
-import Link from "next/link";
 
 export type BreweryDisplayProps = {
   brewery: Brewery;

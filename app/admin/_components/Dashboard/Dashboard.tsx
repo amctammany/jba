@@ -7,7 +7,7 @@ import { User } from "@prisma/client";
 
 export type DashboardProps = {
   src?: User | null;
-  action?: any;
+  //action?: any;
   //children: React.ReactNode;
 };
 
@@ -20,7 +20,7 @@ const AdminSettingsActions = () => {
   );
 };
 
-export const Dashboard = ({ src, action }: DashboardProps) => {
+export const Dashboard = ({ src }: DashboardProps) => {
   return (
     <div className="mx-auto w-10/12 grid grid-flow-row gap-8">
       <Section header="Admin" actions={<AdminSettingsActions />}>

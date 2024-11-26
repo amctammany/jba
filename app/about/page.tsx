@@ -1,10 +1,8 @@
-import { prisma } from "@/lib/client";
-
 export const metadata = {
   title: "JBA: About",
 };
 
-export default async function About() {
+export default function About() {
   return (
     <div>
       <h2 className="text-lg underline font-bold">About JBA</h2>

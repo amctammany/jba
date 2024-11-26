@@ -1,12 +1,12 @@
 //import { type SchemaFieldError } from "@/lib/validateSchema";
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
-import { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 export type LabelProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
   error?: any; //SchemaFieldError;
-  label?: string | React.ReactNode;
+  label?: string | ReactNode;
 } & VariantProps<typeof labelStyles> &
   ComponentProps<"label">;
 const labelStyles = cva(["block "], {

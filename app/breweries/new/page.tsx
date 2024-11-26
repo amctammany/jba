@@ -1,21 +1,13 @@
-//import { Brewery } from "@prisma/client";
-import { prisma } from "@/lib/client";
+import type { Metadata } from "next";
 import BreweryEditor from "../_components/BreweryEditor";
 import { createBrewery } from "../actions";
 import { Brewery } from "@prisma/client";
 
 type BreweryCreatorParams = Promise<{}>;
-export async function generateMetadata({
-  params,
-}: {
-  params: BreweryCreatorParams;
-}) {
-  //const { slug } = await params;
-  return {
-    title: `JBA Brewery: New Brewery`,
-  };
-}
 
+export const metadata: Metadata = {
+  title: "Brewery Creator",
+};
 export default async function BreweryCreatorPage(
   {
     //params,

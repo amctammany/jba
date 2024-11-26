@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
-import { ComponentProps } from "react";
+import { ComponentProps, ReactNode } from "react";
 
 const section = cva(["min-w-full bg-white "], {
   variants: {
@@ -101,9 +101,9 @@ export type SectionProps = VariantProps<typeof section> &
   ComponentProps<"div"> & {
     header?: string;
     icon?: any;
-    actions?: React.ReactNode | React.ReactNode[];
-    children?: React.ReactNode | React.ReactNode[];
-    footer?: React.ReactNode | React.ReactNode[];
+    actions?: ReactNode | ReactNode[];
+    children?: ReactNode | ReactNode[];
+    footer?: ReactNode | ReactNode[];
   };
 
 export const Section = ({

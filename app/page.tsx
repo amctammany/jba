@@ -1,9 +1,8 @@
 import { prisma } from "@/lib/client";
-import Image from "next/image";
 
 export default async function Home() {
   const user = await prisma.user.findMany();
-  console.log(user);
+  //console.log(user);
   return <div>Home!</div>;
 }
 /** 

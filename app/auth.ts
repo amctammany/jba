@@ -9,12 +9,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google],
   session: { strategy: "jwt" },
   callbacks: {
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       //session.preferences = ((token.user || {}) as any).UserPreferences as any;
       session.user = token.user as any;
       return session;
     },
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token }) {
       const currentUser = await prisma.user.findFirst({
         where: {
           email: token.email!,
