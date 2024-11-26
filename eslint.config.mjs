@@ -4,6 +4,7 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 //import configNext from "eslint-plugin-next";
 import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
 import url from "node:url";
 import eslint from "@eslint/js";
 //import configNext from "eslint-config-next";
@@ -19,7 +20,10 @@ const f = [
   //{ extends: [pluginNext] },
 
   //pluginNext.configs.recommended,
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], ignores: [".next/*"] },
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    ignores: [".next/*", "**/*.config.mjs"],
+  },
   { languageOptions: { globals: globals.browser } },
   //pluginNext.configs.flat.recommended,
   pluginJs.configs.recommended,
@@ -38,7 +42,6 @@ const f = [
     },
   },
 ];
-export default f;
 const t = tseslint.config(
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
@@ -66,3 +69,4 @@ const t = tseslint.config(
     },
   }
 );
+export default t;
