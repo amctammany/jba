@@ -3,6 +3,7 @@ import { ButtonLink } from "@/components";
 import { Prop } from "@/components/Prop";
 import { Section } from "@/components/Section";
 import { ExtBrewery } from "../queries";
+import BeerList from "./BeerList";
 
 export type BreweryDisplayProps = {
   brewery: ExtBrewery;
@@ -37,10 +38,8 @@ const BreweryDisplay = ({ brewery }: BreweryDisplayProps) => {
       >
         <Prop label="Name" value={brewery.name} />
         <Prop label="Address" value={brewery.address} />
-        {brewery.beers.map((beer) => (
-          <div key={beer.id}>{JSON.stringify(beer)}</div>
-        ))}
       </Section>
+      <BeerList beers={brewery.beers} slug={brewery.slug} />
     </div>
   );
 };
